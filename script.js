@@ -1,6 +1,6 @@
  const submitBtn = document.getElementById('submit');
-    const player1Input = document.getElementById('player-1');
-    const player2Input = document.getElementById('player-2');
+    const player1Input = document.getElementById('player1');
+    const player2Input = document.getElementById('player2');
     const gameBoardDiv = document.getElementById('game-board');
     const messageDiv = document.querySelector('.message');
     const boardDiv = document.getElementById('board');
@@ -9,7 +9,7 @@
     let player1 = "";
     let player2 = "";
     let currentPlayer = "";
-    let currentSymbol = "X";
+    let currentSymbol = "x";
     let board = Array(9).fill("");
 
     submitBtn.addEventListener('click', () => {
@@ -25,7 +25,7 @@
       gameBoardDiv.style.display = "block";
 
       currentPlayer = player1;
-      messageDiv.textContent = `${currentPlayer}, you're up!`;
+      messageDiv.textContent = `${currentPlayer}, you're up`;
 
       createBoard();
     });
@@ -49,7 +49,7 @@
       const winningCombo = checkWinner();
       if (winningCombo) {
         highlightWinner(winningCombo);
-        messageDiv.textContent = `${currentPlayer}, congratulations! you won!`;
+        messageDiv.textContent = `${currentPlayer}, congratulations you won!`;
         disableBoard();
         return;
       }
@@ -65,12 +65,12 @@
     function switchTurn() {
       if (currentPlayer === player1) {
         currentPlayer = player2;
-        currentSymbol = "O";
+        currentSymbol = "o";
       } else {
         currentPlayer = player1;
-        currentSymbol = "X";
+        currentSymbol = "x";
       }
-      messageDiv.textContent = `${currentPlayer}, you're up!`;
+      messageDiv.textContent = `${currentPlayer}, you're up`;
     }
 
     function checkWinner() {
@@ -83,7 +83,7 @@
       for (let combo of winCombos) {
         const [a, b, c] = combo;
         if (board[a] && board[a] === board[b] && board[a] === board[c]) {
-          return combo; // Return winning cells
+          return combo;
         }
       }
       return null;
