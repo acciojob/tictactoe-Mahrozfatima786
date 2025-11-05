@@ -1,10 +1,10 @@
-const submitBtn = document.getElementById('submit');
-const player1Input = document.getElementById('player1');
-const player2Input = document.getElementById('player2');
-const gameBoardDiv = document.getElementById('game-board');
-const messageDiv = document.querySelector('.message');
-const boardDiv = document.getElementById('board');
-const playerInputsDiv = document.getElementById('player-inputs');
+const submitBtn = document.getElementById("submit");
+const player1Input = document.getElementById("player1");
+const player2Input = document.getElementById("player2");
+const gameBoardDiv = document.getElementById("game-board");
+const messageDiv = document.querySelector(".message");
+const boardDiv = document.getElementById("board");
+const playerInputsDiv = document.getElementById("player-inputs");
 
 let player1 = "";
 let player2 = "";
@@ -12,7 +12,7 @@ let currentPlayer = "";
 let currentSymbol = "x";
 let board = Array(9).fill("");
 
-submitBtn.addEventListener('click', () => {
+submitBtn.addEventListener("click", () => {
   player1 = player1Input.value.trim();
   player2 = player2Input.value.trim();
 
@@ -32,10 +32,10 @@ submitBtn.addEventListener('click', () => {
 
 function createBoard() {
   for (let i = 0; i < 9; i++) {
-    const cell = document.createElement('div');
-    cell.classList.add('cell');
+    const cell = document.createElement("div");
+    cell.classList.add("cell");
     cell.id = i + 1;
-    cell.addEventListener('click', () => makeMove(cell, i));
+    cell.addEventListener("click", () => makeMove(cell, i));
     boardDiv.appendChild(cell);
   }
 }
@@ -49,12 +49,12 @@ function makeMove(cell, index) {
   const winningCombo = checkWinner();
   if (winningCombo) {
     highlightWinner(winningCombo);
-    messageDiv.textContent = `${currentPlayer}, congratulations you won!`;
+    messageDiv.textContent = `${currentPlayer} congratulations you won!`;
     disableBoard();
     return;
   }
 
-  if (board.every(c => c !== "")) {
+  if (board.every((c) => c !== "")) {
     messageDiv.textContent = "It's a draw!";
     return;
   }
@@ -75,9 +75,14 @@ function switchTurn() {
 
 function checkWinner() {
   const winCombos = [
-    [0,1,2], [3,4,5], [6,7,8],
-    [0,3,6], [1,4,7], [2,5,8],
-    [0,4,8], [2,4,6]
+    [0, 1, 2],
+    [3, 4, 5],
+    [6, 7, 8],
+    [0, 3, 6],
+    [1, 4, 7],
+    [2, 5, 8],
+    [0, 4, 8],
+    [2, 4, 6],
   ];
 
   for (let combo of winCombos) {
@@ -90,13 +95,13 @@ function checkWinner() {
 }
 
 function highlightWinner(combo) {
-  combo.forEach(index => {
-    document.getElementById(index + 1).classList.add('winner');
+  combo.forEach((index) => {
+    document.getElementById(index + 1).classList.add("winner");
   });
 }
 
 function disableBoard() {
-  document.querySelectorAll('.cell').forEach(cell => {
-    cell.style.pointerEvents = 'none';
+  document.querySelectorAll(".cell").forEach((cell) => {
+    cell.style.pointerEvents = "none";
   });
 }
