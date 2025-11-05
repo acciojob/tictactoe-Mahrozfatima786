@@ -1,81 +1,66 @@
 body {
-      font-family: Arial, sans-serif;
-      background-color: #f4f4f9;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      margin: 0;
-    }
+  font-family: Arial, sans-serif;
+  background-color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
 
-    .container {
-      text-align: center;
-      background: white;
-      padding: 30px;
-      border-radius: 10px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-      width: 350px;
-    }
+h1 {
+  font-family: 'Comic Sans MS', cursive;
+  margin-bottom: 10px;
+}
 
-    .players {
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-    }
+.container {
+  text-align: center;
+}
 
-    input {
-      padding: 10px;
-      font-size: 16px;
-      border-radius: 5px;
-      border: 1px solid #ccc;
-    }
+#player-inputs {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 250px;
+  margin: auto;
+}
 
-    button {
-      padding: 10px;
-      background-color: #4CAF50;
-      color: white;
-      border: none;
-      border-radius: 5px;
-      font-size: 16px;
-      cursor: pointer;
-    }
+input, button {
+  padding: 10px;
+  font-size: 16px;
+}
 
-    button:hover {
-      background-color: #45a049;
-    }
+button {
+  cursor: pointer;
+  border: 1px solid black;
+  background: white;
+  border-radius: 8px;
+}
 
-    .board {
-      display: grid;
-      grid-template-columns: repeat(3, 100px);
-      grid-template-rows: repeat(3, 100px);
-      gap: 5px;
-      justify-content: center;
-      margin-top: 20px;
-    }
+.board {
+  display: grid;
+  grid-template-columns: repeat(3, 100px);
+  grid-template-rows: repeat(3, 100px);
+  gap: 2px;
+  margin-top: 20px;
+}
 
-    .cell {
-      background-color: #f0f0f0;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      font-size: 40px;
-      cursor: pointer;
-      border-radius: 10px;
-      transition: background 0.2s, color 0.3s;
-      text-transform: lowercase;
-    }
+.cell {
+  background-color: #ffc0cb;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 42px;
+  text-transform: lowercase;
+  cursor: pointer;
+}
 
-    .cell:hover {
-      background-color: #dcdcdc;
-    }
+.winner {
+  background-color: purple !important;
+  color: white !important;
+}
 
-    .winner {
-      background-color: #a855f7 !important; /* Purple */
-      color: white !important;
-    }
-
-    .message {
-      font-size: 18px;
-      margin-top: 15px;
-      color: #333;
-    }
+.message {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
